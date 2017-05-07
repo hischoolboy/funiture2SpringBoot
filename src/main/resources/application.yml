@@ -7,7 +7,7 @@ spring.datasource:
 
 ## Mybatis 配置
 mybatis:
-  typeAliasesPackage: io.hischoolboy.domain
+  typeAliasesPackage: io.hischoolboy
   mapperLocations: classpath:mapper/*.xml
 
 ## Redis 配置
