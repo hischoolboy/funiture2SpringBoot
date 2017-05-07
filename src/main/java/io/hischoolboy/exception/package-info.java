@@ -1,0 +1,1 @@
+/** * 异常封装 */package io.hischoolboy.exception;

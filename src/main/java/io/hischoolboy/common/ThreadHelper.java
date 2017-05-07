@@ -1,0 +1,1 @@
+package io.hischoolboy.common;import lombok.extern.slf4j.Slf4j;@Slf4jpublic class ThreadHelper {    public static void safeSleep(long millseconds) {        try {            Thread.currentThread().sleep(millseconds);        } catch (Throwable t) {            log.error("thread sleep exception", t);        }    }}

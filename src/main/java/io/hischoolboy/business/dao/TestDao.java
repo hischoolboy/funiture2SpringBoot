@@ -1,0 +1,1 @@
+package io.hischoolboy.business.dao;import io.hischoolboy.business.domain.Test;import io.hischoolboy.common.DBRepository;@DBRepositorypublic interface TestDao {    void save(Test test);}

@@ -1,0 +1,1 @@
+/** * 定义系统共用的一些类 *  */package io.hischoolboy.beans;

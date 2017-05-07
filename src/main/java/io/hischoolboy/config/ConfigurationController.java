@@ -1,0 +1,56 @@
+package io.hischoolboy.config;
+
+import io.hischoolboy.acl.util.RequestHolder;
+import io.hischoolboy.beans.JsonData;
+import io.hischoolboy.beans.PageQuery;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
+
+
+@Slf4j
+@Controller
+@RequestMapping("/config")
+public class ConfigurationController {
+
+    @Resource
+    private ConfigurationService configurationService;
+
+    @ResponseBody
+    @RequestMapping("/page.do")
+    public ModelAndView page() {
+        return new ModelAndView("config");
+    }
+
+    @ResponseBody
+    @RequestMapping("/reloadAll.json")
+    public JsonData reloadAll() {
+        log.info("reload all machine config, username:{}", RequestHolder.getCurrentUser().getUsername());
+        return JsonData.success(GlobalConfig.loadMachineConfig());
+    }
+
+    @ResponseBody
+    @RequestMapping("/reload.json")
+    public JsonData reload() {
+        log.info("reload config, username:{}", RequestHolder.getCurrentUser().getUsername());
+        GlobalConfig.loadAllConfig();
+        return JsonData.success();
+    }
+
+    @ResponseBody
+    @RequestMapping("/save.json")
+    public JsonData save(ConfigurationParam param) {
+        Configuration configuration = configurationService.saveOrUpdate(param);
+        return JsonData.success(configuration);
+    }
+
+    @ResponseBody
+    @RequestMapping("/page.json")
+    public JsonData page(PageQuery page) {
+        return JsonData.success(configurationService.getByPage(page));
+    }
+}
