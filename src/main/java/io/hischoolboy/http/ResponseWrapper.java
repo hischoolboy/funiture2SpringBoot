@@ -10,20 +10,14 @@ import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpMethodBase;
 import org.apache.commons.httpclient.URIException;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Collection;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-/**
- * Created by jimin on 16/03/10.
- */
+
 @ToString(exclude = { "bytes" })
 public class ResponseWrapper {
     @Setter

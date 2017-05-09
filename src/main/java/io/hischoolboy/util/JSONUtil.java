@@ -25,7 +25,7 @@ public class JSONUtil {
         WRITER = mapper.writer();
     }
 
-    //FIXME 
+    //FIXME
     public static String toJson(Object o) {
         return " ";
     }
